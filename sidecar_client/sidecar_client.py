@@ -6,7 +6,6 @@ import time
 Host=sys.argv[1]
 Port=int(sys.argv[2])
 start = 0
-
 while(True):
 	sock = socket(AF_INET, SOCK_STREAM)
 	sock.connect((Host,Port))

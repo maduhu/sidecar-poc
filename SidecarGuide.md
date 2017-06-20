@@ -19,13 +19,13 @@ docker build .
 ```
 You will get the following result
 ```
-Successfully built aa7068c141e8
+Successfully built 1e589a9a82a8
 ```
 
 ### Build sidecar client image
 Run the same command and you can get the similar result:
 ```
-Successfully built 5bcc654b5088
+Successfully built 6fe9bff8b6cc
 ```
 
 ## Creating a subnet
@@ -40,12 +40,12 @@ Now that you have the subnet created within docker, you need to run the docker i
 
 ### Run sidecar server in the subnet
 ```
-docker run --net sidecar_net -d --name sidecar_server --ip 172.18.0.2 aa7068c141e8
+docker run --net sidecar_net -d --name sidecar_server --ip 172.18.0.2 -p 5678:5678 --privileged 1e589a9a82a8
 ```
 Now you are running sidecar server with ip address 172.18.0.2 in the subnet **sidecar_net**. If you want to change the IP address used for the sidecar_server, you will also need to change the [sidecar_client.sh](sidecar_client/sidecar_client.sh) to make it match the IP address given in the previous command.
 
 ### Run sidecar client in the subnet
 ```
-docker run -d --net sidecar_net --name sidecar_client 5bcc654b5088
+docker run -d --net sidecar_net --name sidecar_client 6fe9bff8b6cc
 ```
 Now you are running sidecar client in the subnet **sidecar_net**.
