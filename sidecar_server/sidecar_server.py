@@ -49,7 +49,7 @@ if __name__ == '__main__':
 
 		file_name = str(datetime.now())
 		try:
-			message = connectionSocket.recv(3)
+			message = connectionSocket.recv(1024)
 			print 'Got message: ' + message
 			if len(ring_buffer.get()) == SIZE_OF_BUFFER:
 				os.remove(ring_buffer.get()[0])

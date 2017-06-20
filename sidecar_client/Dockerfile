@@ -5,7 +5,6 @@ ADD sidecar_client.sh /usr/local/src/sidecar_client/sidecar_client.sh
 ADD sidecar_client.py /usr/local/src/sidecar_client/sidecar_client.py
 
 RUN apk add --update python &&\
-    apk add --update curl &&\
     chmod +x /usr/local/src/sidecar_client/sidecar_client.sh
 
 ENTRYPOINT ["/usr/local/src/sidecar_client/sidecar_client.sh"]
